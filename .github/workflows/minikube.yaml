@@ -1,0 +1,37 @@
+name: Deploy minikube and Kind
+on:
+  - push
+  - pull_request
+jobs:
+  deploy minikube:
+    runs-on: ubuntu-latest
+    name: deploy to minikube
+    steps:
+    - uses: actions/checkout@v2
+    - name: Start minikube
+      uses: medyagh/setup-minikube@master
+    - name: checkinfo
+      run: |
+       echo "This cluster have $(kubectl get pods -A) node(s)" >> output_minikube.log 
+       echo "Minikube version $(kubectl version --short)" >> output_minikube.log
+    - name: Upload report
+      uses: actions/upload-artifact@v3
+      with:
+          path: output_minikube.log
+             
+  deploy KinD:
+    runs-on: ubuntu-latest
+    name: deploy to KinD
+    steps:
+    - uses: actions/checkout@v2
+    - name: Start KinD
+    - uses: engineerd/setup-kind@v0.5.0
+    - name: checkinfo
+      run: |
+       echo "This cluster have $(kubectl get pods -A) node(s)" >> output_kind.log
+       echo "Minikube version $(kubectl version --short)" >> output_kind.log
+    - name: Upload report
+      uses: actions/upload-artifact@v3
+      with:
+          path: output_kind.log
+
