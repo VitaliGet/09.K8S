@@ -7,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy to minikube
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     - name: checkinfo
@@ -24,8 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     name: deploy to KinD
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
     - name: Start KinD
     - uses: engineerd/setup-kind@v0.5.0
     - name: checkinfo
