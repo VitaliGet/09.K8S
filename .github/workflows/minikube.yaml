@@ -23,7 +23,7 @@ jobs:
     name: deploy to KinD
     steps:
     - name: Start KinD
-    - uses: engineerd/setup-kind@v0.5.0
+      uses: engineerd/setup-kind@v0.5.0
     - name: checkinfo
       run: |
        echo "This cluster have $(kubectl get pods -A) node(s)" >> output_kind.log
