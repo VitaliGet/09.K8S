@@ -11,8 +11,8 @@ jobs:
       uses: medyagh/setup-minikube@master
     - name: checkinfo
       run: |
-       echo "Nods:\n $(kubectl get pods -A)" >> output_minikube.log 
-       echo "Minikube version:\n $(kubectl version --short)" >> output_minikube.log
+       echo "Nods: $(kubectl get pods -A)" >> output_minikube.log 
+       echo "Minikube version: $(kubectl version --short)" >> output_minikube.log
     - name: Upload report
       uses: actions/upload-artifact@v3
       with:
@@ -28,8 +28,8 @@ jobs:
         version: "v0.17.0"
     - name: checkinfo
       run: |
-       echo "Nods:\n $(kubectl get pods -A)" >> output_kind.log
-       echo "Minikube version:\n $(kubectl version --short)" >> output_kind.log
+       echo "Nods: $(kubectl get pods -A)" >> output_kind.log
+       echo "KinD version: $(kubectl version --short)" >> output_kind.log
     - name: Upload report
       uses: actions/upload-artifact@v3
       with:
