@@ -3,7 +3,7 @@ on:
   - push
   - pull_request
 jobs:
-  deploy minikube:
+  deploy_minikube:
     runs-on: ubuntu-latest
     name: deploy to minikube
     steps:
@@ -18,7 +18,7 @@ jobs:
       with:
           path: output_minikube.log
              
-  deploy KinD:
+  deploy_KinD:
     runs-on: ubuntu-latest
     name: deploy to KinD
     steps:
